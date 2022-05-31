@@ -25,7 +25,44 @@ const DataRead = () => {
 
   return (
     <div id="list-wrapper">
-      {tasks.map(function (task, index) {
+      <div className=" p-10 task-wrapper flex-wrapper">
+        <h2 className="font text-2xl">testing prompt response</h2>
+        <div className="prompt-container">
+          <h1 className="text-xl bar-text-color">
+            {" "}
+            <span>testing 1234</span>
+          </h1>
+        </div>
+      </div>
+      <div className=" p-10 task-wrapper flex-wrapper">
+        <h2 className="font text-2xl">testing prompt response</h2>
+        <div className="prompt-container">
+          <h1 className="text-xl bar-text-color">
+            {" "}
+            <span>testing 1234</span>
+          </h1>
+        </div>
+      </div>
+      <div className=" p-10 task-wrapper flex-wrapper">
+        <h2 className="font text-2xl">testing prompt response</h2>
+        <div className="prompt-container">
+          <h1 className="text-xl bar-text-color">
+            {" "}
+            <span>testing 1234</span>
+          </h1>
+        </div>
+      </div>
+      <div className=" p-10 task-wrapper flex-wrapper">
+        <h2 className="font text-2xl">testing prompt response</h2>
+        <div className="prompt-container">
+          <h1 className="text-xl bar-text-color">
+            {" "}
+            <span>testing 1234</span>
+          </h1>
+        </div>
+      </div>
+
+      {/* {tasks.map(function (task, index) {
         return (
           <>
             {index < 4 ? (
@@ -43,7 +80,7 @@ const DataRead = () => {
             )}
           </>
         );
-      })}
+      })} */}
     </div>
   );
 };
