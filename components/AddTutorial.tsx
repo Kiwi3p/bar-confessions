@@ -11,7 +11,7 @@ class App extends React.Component<any, any> {
       todoList: [],
       activeItem: {
         answer: "",
-        prompt: ``,
+        prompt: "",
       },
       editing: false,
     };
@@ -38,9 +38,16 @@ class App extends React.Component<any, any> {
     return cookieValue;
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.fetchTasks();
-    this.setPrompt();
+    await this.setPrompt();
+    await this.commitPrompt()
+  }
+
+  async reconfigurePrompt(){
+    this.fetchTasks();
+    await this.setPrompt();
+    await this.commitPrompt()
   }
 
   fetchTasks() {
@@ -98,6 +105,7 @@ class App extends React.Component<any, any> {
       });
     }
 
+    
     fetch(url, {
       method: "POST",
       headers: {
@@ -114,6 +122,7 @@ class App extends React.Component<any, any> {
             prompt: ``,
           },
         });
+        this.reconfigurePrompt();
       })
       .catch(function (error) {
         console.log("ERROR:", error);
@@ -133,7 +142,7 @@ class App extends React.Component<any, any> {
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
   }
 
-  setPrompt() {
+   setPrompt() {
     function getRandomInt(min: any, max: any) {
       min = Math.ceil(min);
       max = Math.floor(max);
@@ -142,6 +151,16 @@ class App extends React.Component<any, any> {
 
     this.setState({
       prompt: getRandomInt(0, questions.length),
+    });
+
+     
+  }
+
+  commitPrompt() {
+    this.setState({
+      activeItem: {
+        prompt: questions[this.state.prompt].question,
+      },
     });
   }
 
@@ -159,12 +178,13 @@ class App extends React.Component<any, any> {
             <div>
               {this.state.editPrompt ? (
                 <h1 className="text-4xl">
-                  {questions[this.state.prompt].question}
+                  {/* {questions[this.state.prompt].question} */}
+                  {this.state.activeItem.prompt}
                 </h1>
               ) : (
                 <input
                   onChange={this.handlePromptChange}
-                  className="form-control"
+                  className="form-control text-black"
                   id="prompt"
                   defaultValue={questions[this.state.prompt].question}
                   value={this.state.activeItem.prompt}

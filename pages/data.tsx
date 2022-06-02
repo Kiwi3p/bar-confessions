@@ -10,9 +10,20 @@ import Layout from "../components/wrappers/Layout";
 const Data: NextPage = () => {
   return (
     <Layout title="data">
-    <div className="flex flex-col justify-center font-mono text-white h-screen w-screen art-bar-bg">
-      <DataRead />
-    </div>
+      <div className="flex flex-col justify-center font-mono text-white h-screen w-screen art-bar-bg">
+        <div className="flex flex-col justify-center self-center">
+          <h1 className="site-title uppercase text-3xl">Bar Confessions</h1>
+        </div>
+        <DataRead />
+        <div className="flex flex-row justify-cetner self-center">
+          <img className="px-5" src="assets/img/palmtree.svg" alt="palm tree" />
+          <img src="assets/img/palmtreev2.svg" alt="palm tree" />
+          <img src="assets/img/palmtree.svg" alt="palm tree" />
+          <img src="assets/img/palmtreev2.svg" alt="palm tree" />
+          <img src="assets/img/palmtree.svg" alt="palm tree" />
+          <img src="assets/img/palmtreev2.svg" alt="palm tree" />
+        </div>
+      </div>
     </Layout>
   );
 };

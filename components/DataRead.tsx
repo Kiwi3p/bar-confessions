@@ -66,7 +66,7 @@ const DataRead = () => {
         return (
           <>
             {index < 4 ? (
-              <div key={index} className=" p-10 task-wrapper flex-wrapper">
+              <div key={index} className=" p-5 task-wrapper flex-wrapper">
                 <h2 className="font text-2xl">{task.prompt}</h2>
                 <div className="prompt-container">
                   <h1 className="text-xl bar-text-color">
