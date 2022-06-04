@@ -1,8 +1,15 @@
 import React from "react";
 import PostModal from "./PostModal";
 import questions from "../data/questions.json";
+import { withRouter, NextRouter } from "next/router";
 
-class AddTutorial extends React.Component<any, any> {
+interface WithRouterProps {
+  router: NextRouter;
+}
+
+interface MyComponentProps extends WithRouterProps {}
+
+class AddTutorial extends React.Component<MyComponentProps, any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -141,6 +148,9 @@ class AddTutorial extends React.Component<any, any> {
           },
         });
         this.reconfigurePrompt();
+        {
+          this.props.router.push("/success");
+        }
       })
       .catch(function (error) {
         console.log("ERROR:", error);
@@ -181,17 +191,18 @@ class AddTutorial extends React.Component<any, any> {
       // this.setPrompt();
       // this.commitPrompt();
 
-      console.log("array find", this.state.questionList[this.state.prompt].question)
-  
+      console.log(
+        "array find",
+        this.state.questionList[this.state.prompt].question
+      );
+
       this.setState({
         activeItem: {
-   
           prompt: this.state.questionList[this.state.prompt].question,
           // prompt: this.state.prompt,
         },
       });
     }, 500);
-    
   }
 
   editPrompt() {
@@ -264,4 +275,4 @@ class AddTutorial extends React.Component<any, any> {
   }
 }
 
-export default AddTutorial;
+export default withRouter(AddTutorial);
