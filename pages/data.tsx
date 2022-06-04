@@ -14,7 +14,7 @@ const Data: NextPage = () => {
         <div className="flex flex-col justify-center self-center">
           <h1 className="site-title uppercase text-2xl">Bar Confessions</h1>
           <h2 className=" uppercase text-large">
-            Go to https://www.barconfessions.com <br />
+            Go to https://www.bar-confessions.com <br />
             to confess your sins
           </h2>
         </div>
