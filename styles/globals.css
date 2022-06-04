@@ -90,8 +90,8 @@ a {
 
 .prompt-container {
   box-sizing: border-box;
-    width: 94vw;
-    height: 90px;
+    /* width: 94vw; */
+    /* height: 90px; */
     background: #ffe7f5;
     border: 4px solid #ffd686;
     padding: 10px 15px;
@@ -99,6 +99,8 @@ a {
     border-radius: 21px;
 
 }
+
+
 
 .bar-text-color {
   color: #5E153F;

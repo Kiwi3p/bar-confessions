@@ -2,24 +2,18 @@ import React from "react";
 import PostModal from "./PostModal";
 import questions from "../data/questions.json";
 
-class AddTutorial extends React.Component<any, any> {
+class AddQuestion extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      editPrompt: true,
-      prompt: null,
       todoList: [],
-      questionList: [],
       activeItem: {
-        answer: "",
-        prompt: "loading...",
+        question: "",
       },
       editing: false,
     };
     this.fetchTasks = this.fetchTasks.bind(this);
-    this.fetchQuestions = this.fetchQuestions.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handlePromptChange = this.handlePromptChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getCookie = this.getCookie.bind(this);
   }
@@ -42,41 +36,25 @@ class AddTutorial extends React.Component<any, any> {
 
   async componentDidMount() {
     this.fetchTasks();
-    this.fetchQuestions();
-    setTimeout(() => {
-      this.setPrompt();
-      this.commitPrompt();
-    }, 500);
+    await this.setPrompt();
+    await this.commitPrompt();
   }
 
   async reconfigurePrompt() {
     this.fetchTasks();
-    this.fetchQuestions();
-    // await this.setPrompt();
-    // await this.commitPrompt();
+    await this.setPrompt();
+    await this.commitPrompt();
   }
 
   fetchTasks() {
-    console.log("Fetching tasks...");
-
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_ADDRESS}/api/task-list/`)
-      .then((response) => response.json())
-      .then((data) =>
-        this.setState({
-          todoList: data,
-        })
-      );
-  }
-
-  fetchQuestions() {
-    console.log("Fetching questions...");
+    console.log("Fetching...");
 
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_ADDRESS}/api/question-list/`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         this.setState({
-          questionList: data,
+          todoList: data,
         });
       });
   }
@@ -90,21 +68,7 @@ class AddTutorial extends React.Component<any, any> {
     this.setState({
       activeItem: {
         ...this.state.activeItem,
-        answer: value,
-      },
-    });
-  }
-
-  handlePromptChange(e: any) {
-    var prompt = e.target.answer;
-    var value = e.target.value;
-    console.log("Prompt:", prompt);
-    console.log("Value:", value);
-
-    this.setState({
-      activeItem: {
-        ...this.state.activeItem,
-        prompt: value,
+        question: value,
       },
     });
   }
@@ -115,10 +79,10 @@ class AddTutorial extends React.Component<any, any> {
 
     var csrftoken = this.getCookie("csrftoken");
 
-    var url = `${process.env.NEXT_PUBLIC_BACKEND_ADDRESS}/api/task-create/`;
+    var url = `${process.env.NEXT_PUBLIC_BACKEND_ADDRESS}/api/question-create/`;
 
     if (this.state.editing == true) {
-      url = `${process.env.NEXT_PUBLIC_BACKEND_ADDRESS}/api/task-update/${this.state.activeItem.id}/`;
+      url = `${process.env.NEXT_PUBLIC_BACKEND_ADDRESS}/api/question-update/${this.state.activeItem.id}/`;
       this.setState({
         editing: false,
       });
@@ -136,8 +100,7 @@ class AddTutorial extends React.Component<any, any> {
         this.fetchTasks();
         this.setState({
           activeItem: {
-            answer: "",
-            prompt: ``,
+            question: "",
           },
         });
         this.reconfigurePrompt();
@@ -168,30 +131,16 @@ class AddTutorial extends React.Component<any, any> {
     }
 
     this.setState({
-      prompt: getRandomInt(0, this.state.questionList.length),
+      prompt: getRandomInt(0, questions.length),
     });
   }
 
   commitPrompt() {
-    // this.setPrompt();
-    // if (this.state.questionList[this.state.prompt] === null) {
-    //   return null
-    // }
-    setTimeout(() => {
-      // this.setPrompt();
-      // this.commitPrompt();
-
-      console.log("array find", this.state.questionList[this.state.prompt].question)
-  
-      this.setState({
-        activeItem: {
-   
-          prompt: this.state.questionList[this.state.prompt].question,
-          // prompt: this.state.prompt,
-        },
-      });
-    }, 500);
-    
+    this.setState({
+      activeItem: {
+        prompt: questions[this.state.prompt].question,
+      },
+    });
   }
 
   editPrompt() {
@@ -206,31 +155,7 @@ class AddTutorial extends React.Component<any, any> {
         <div id="task-container">
           <div id="form-wrapper">
             <div>
-              {this.state.editPrompt ? (
-                <h1 className="text-4xl">
-                  {/* {questions[this.state.prompt].question} */}
-                  {this.state.activeItem.prompt}
-                </h1>
-              ) : (
-                <input
-                  onChange={this.handlePromptChange}
-                  className="form-control text-black"
-                  maxLength={100}
-                  id="prompt"
-                  defaultValue={questions[this.state.prompt].question}
-                  value={this.state.activeItem.prompt}
-                  type="text"
-                  name="prompt"
-                  placeholder="Add task.."
-                />
-              )}
-              {/* <h1 className="text-4xl">
-                {questions[this.state.prompt].question}
-              </h1> */}
-              {/* <button onClick={() => this.setPrompt()}>Change prompt</button> */}
-              <button className="bar-yellow" onClick={() => this.editPrompt()}>
-                Edit Prompt
-              </button>
+              <h1 className="text-4xl">Add your question</h1>
             </div>
             <br />
             <br />
@@ -240,11 +165,11 @@ class AddTutorial extends React.Component<any, any> {
                   <textarea
                     onChange={this.handleChange}
                     className="form-control answer-box text-black"
-                    id="answer"
+                    id="question"
                     maxLength={500}
-                    value={this.state.activeItem.answer}
-                    name="answer"
-                    placeholder="Add answer.."
+                    value={this.state.activeItem.question}
+                    name="question"
+                    placeholder="Add question.."
                   />
                 </div>
                 <div>
@@ -264,4 +189,4 @@ class AddTutorial extends React.Component<any, any> {
   }
 }
 
-export default AddTutorial;
+export default AddQuestion;

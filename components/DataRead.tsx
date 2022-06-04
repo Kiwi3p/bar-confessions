@@ -24,7 +24,7 @@ const DataRead = () => {
   }
 
   return (
-    <div id="list-wrapper">
+    <div id="list-wrapper" className="px-20">
       {/* <div className=" p-10 task-wrapper flex-wrapper">
         <h2 className="font text-2xl">testing prompt response</h2>
         <div className="prompt-container">
@@ -65,7 +65,7 @@ const DataRead = () => {
       {tasks.map(function (task, index) {
         return (
           <>
-            {index < 4 ? (
+            {index < 3 ? (
               <div key={index} className=" p-5 task-wrapper flex-wrapper">
                 <h2 className="font text-2xl">{task.prompt}</h2>
                 <div className="prompt-container">
