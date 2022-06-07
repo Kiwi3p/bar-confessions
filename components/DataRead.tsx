@@ -67,9 +67,9 @@ const DataRead = () => {
           <>
             {index < 3 ? (
               <div key={index} className=" p-2 task-wrapper flex-wrapper">
-                <h2 className="font text-base">{task.prompt}</h2>
+                <h2 className="font text-xl">{task.prompt}</h2>
                 <div className="prompt-container">
-                  <h1 className="text-xs bar-text-color">
+                  <h1 className="text-sm font-bold bar-text-color">
                     {" "}
                     <span>{task.answer}</span>
                   </h1>

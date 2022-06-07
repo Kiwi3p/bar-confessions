@@ -259,7 +259,7 @@ class AddTutorial extends React.Component<MyComponentProps, any, any> {
                     onChange={this.handleChange}
                     className="form-control answer-box text-black"
                     id="answer"
-                    maxLength={180}
+                    maxLength={140}
                     value={this.state.activeItem.answer}
                     name="answer"
                     placeholder="Add answer.."

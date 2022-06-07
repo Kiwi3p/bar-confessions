@@ -10,9 +10,27 @@ import Layout from "../components/wrappers/Layout";
 const Data: NextPage = () => {
   return (
     <Layout title="data">
-      <div className="flex flex-col pt-10 font-mono text-white h-screen w-screen overlay overflow-hidden">
+      <div className="flex flex-col pt-2 font-mono text-white h-screen w-screen overlay overflow-hidden">
         <div className="flex flex-col justify-center self-center">
           <h1 className="site-title uppercase text-2xl">Bar Confessions</h1>
+        </div>
+        <div className="relative flex self-center text-center p-2 flex flex-row">
+          {/* <img
+            className="px-5 w-24"
+            src="assets/img/palmtree.svg"
+            alt="palm tree"
+          /> */}
+          <div className="tree"></div>
+          <h2 className=" uppercase text-xl">
+            Go to https://www.bar-confessions.com <br />
+            <b>to confess your sins</b>
+          </h2>
+          {/* <img
+            className="px-5 w-24"
+            src="assets/img/palmtreev2.svg"
+            alt="palm tree"
+          /> */}
+          <div className="tree"></div>
         </div>
         <div className="relative z-20">
           <DataRead />
@@ -49,24 +67,7 @@ const Data: NextPage = () => {
             alt="palm tree"
           />
         </div> */}
-        <div className="absolute -bottom-5 flex self-center text-center p-10 flex flex-row">
-          {/* <img
-            className="px-5 w-24"
-            src="assets/img/palmtree.svg"
-            alt="palm tree"
-          /> */}
-          <div className="tree"></div>
-          <h2 className=" uppercase text-xl">
-            Go to https://www.bar-confessions.com <br />
-            <b>to confess your sins</b>
-          </h2>
-          {/* <img
-            className="px-5 w-24"
-            src="assets/img/palmtreev2.svg"
-            alt="palm tree"
-          /> */}
-          <div className="tree"></div>
-        </div>
+       
       </div>
     </Layout>
   );
