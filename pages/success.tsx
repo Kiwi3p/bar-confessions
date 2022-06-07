@@ -11,7 +11,7 @@ import Link from "next/link";
 const Success: NextPage = () => {
   return (
     <Layout title="data">
-      <div className="flex flex-col font-mono text-white h-screen w-screen art-bar-bg overflow-hidden">
+      <div className="flex flex-col font-mono text-white h-screen w-screen overlay overflow-hidden">
         <div className="flex flex-col  items-center">
           <h1 className="text-2xl p-7">
             Thank you for confessing your sins! Priests don’t tell... but we do!

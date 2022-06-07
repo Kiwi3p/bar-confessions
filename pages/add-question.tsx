@@ -12,7 +12,7 @@ import Link from "next/link";
 const Home: NextPage = () => {
   return (
     <Layout title="Add Question">
-      <div className="flex flex-col pt-5 font-mono text-white h-screen w-screen art-bar-bg">
+      <div className="flex flex-col pt-5 font-mono text-white h-screen w-screen overlay">
         <div className="flex flex-col items-center p-3 justify-center">
           <Link href="/">
             <h1 className="site-title uppercase text-xl">Bar Confessions</h1>
