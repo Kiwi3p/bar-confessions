@@ -1,6 +1,7 @@
 import React from "react";
-import PostModal from "./PostModal";
+// import PostModal from "./PostModal";
 import questions from "../data/questions.json";
+import { withRouter, NextRouter } from "next/router";
 
 class AddQuestion extends React.Component<any, any> {
   constructor(props: any) {
@@ -11,6 +12,7 @@ class AddQuestion extends React.Component<any, any> {
         question: "",
       },
       editing: false,
+      questionCount: 0,
     };
     this.fetchTasks = this.fetchTasks.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -70,6 +72,7 @@ class AddQuestion extends React.Component<any, any> {
         ...this.state.activeItem,
         question: value,
       },
+      questionCount: e.target.value.length,
     });
   }
 
@@ -104,6 +107,9 @@ class AddQuestion extends React.Component<any, any> {
           },
         });
         this.reconfigurePrompt();
+        {
+          this.props.router.push("/question-success");
+        }
       })
       .catch(function (error) {
         console.log("ERROR:", error);
@@ -166,11 +172,12 @@ class AddQuestion extends React.Component<any, any> {
                     onChange={this.handleChange}
                     className="form-control answer-box text-black"
                     id="question"
-                    maxLength={500}
+                    maxLength={50}
                     value={this.state.activeItem.question}
                     name="question"
                     placeholder="Add question.."
                   />
+                  {this.state.questionCount}/50
                 </div>
                 <div>
                   <input
@@ -189,4 +196,4 @@ class AddQuestion extends React.Component<any, any> {
   }
 }
 
-export default AddQuestion;
+export default withRouter(AddQuestion);

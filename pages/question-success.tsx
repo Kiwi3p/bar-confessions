@@ -14,9 +14,9 @@ const Success: NextPage = () => {
       <div className="flex flex-col font-mono text-white h-screen w-screen overlay overflow-hidden">
         <div className="flex flex-col  items-center">
           <h1 className="text-2xl p-7">
-            Thank you for confessing your sins! Priests don’t tell... but we do!
+            Thank you for submitting a question! 
             <br />
-            Check the screen
+            Now wait for some unlucky drunk to answer you for their sins...
           </h1>
           <div>
             <Link href="/">

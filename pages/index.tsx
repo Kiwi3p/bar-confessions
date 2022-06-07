@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <div className="px-10">
           <AddTutorial />
         </div>
-        <div className="flex flex-row absolute bottom-0 overflow-hidden">
+        <div className="absolute md:hidden block flex flex-row absolute bottom-0 overflow-hidden">
           <img
             className=" w-96"
             src="assets/img/palmtree.svg"

@@ -1,5 +1,5 @@
 import React from "react";
-import PostModal from "./PostModal";
+// import PostModal from "./PostModal";
 import questions from "../data/questions.json";
 import { withRouter, NextRouter } from "next/router";
 
@@ -22,6 +22,8 @@ class AddTutorial extends React.Component<MyComponentProps, any, any> {
         prompt: "loading...",
       },
       editing: false,
+      count: 0,
+      questionCount: 0,
     };
     this.fetchTasks = this.fetchTasks.bind(this);
     this.fetchQuestions = this.fetchQuestions.bind(this);
@@ -99,6 +101,7 @@ class AddTutorial extends React.Component<MyComponentProps, any, any> {
         ...this.state.activeItem,
         answer: value,
       },
+      count: e.target.value.length,
     });
   }
 
@@ -113,6 +116,7 @@ class AddTutorial extends React.Component<MyComponentProps, any, any> {
         ...this.state.activeItem,
         prompt: value,
       },
+      questionCount: e.target.value.length,
     });
   }
 
@@ -223,17 +227,20 @@ class AddTutorial extends React.Component<MyComponentProps, any, any> {
                   {this.state.activeItem.prompt}
                 </h1>
               ) : (
-                <input
-                  onChange={this.handlePromptChange}
-                  className="form-control text-black"
-                  maxLength={100}
-                  id="prompt"
-                  defaultValue={questions[this.state.prompt].question}
-                  value={this.state.activeItem.prompt}
-                  type="text"
-                  name="prompt"
-                  placeholder="Add task.."
-                />
+                <>
+                  <input
+                    onChange={this.handlePromptChange}
+                    className="form-control text-black"
+                    maxLength={50}
+                    id="prompt"
+                    defaultValue={questions[this.state.prompt].question}
+                    value={this.state.activeItem.prompt}
+                    type="text"
+                    name="prompt"
+                    placeholder="Add task.."
+                  />
+                  {this.state.questionCount}/50
+                </>
               )}
               {/* <h1 className="text-4xl">
                 {questions[this.state.prompt].question}
@@ -252,11 +259,12 @@ class AddTutorial extends React.Component<MyComponentProps, any, any> {
                     onChange={this.handleChange}
                     className="form-control answer-box text-black"
                     id="answer"
-                    maxLength={280}
+                    maxLength={180}
                     value={this.state.activeItem.answer}
                     name="answer"
                     placeholder="Add answer.."
                   />
+                  {this.state.count}/140
                 </div>
                 <div>
                   <input
@@ -269,7 +277,6 @@ class AddTutorial extends React.Component<MyComponentProps, any, any> {
               </div>
             </form>
           </div>
-          
         </div>
       </div>
     );
