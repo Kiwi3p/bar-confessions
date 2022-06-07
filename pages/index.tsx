@@ -10,12 +10,24 @@ import Layout from "../components/wrappers/Layout";
 const Home: NextPage = () => {
   return (
     <Layout title="Home">
-      <div className="flex flex-col justify-center font-mono text-white h-screen w-screen art-bar-bg">
-        <div className="flex flex-col justify-center">
-          <h1 className="site-title uppercase">Bar Confessions</h1>
+      <div className="flex flex-col pt-5 font-mono text-white h-screen w-screen art-bar-bg">
+        <div className="flex flex-col items-center p-3 justify-center">
+          <h1 className="site-title uppercase text-xl">Bar Confessions</h1>
         </div>
-        <div>
+        <div className="px-10">
           <AddTutorial />
+        </div>
+        <div className="flex flex-row absolute bottom-0 overflow-hidden">
+          <img
+            className=" w-96"
+            src="assets/img/palmtree.svg"
+            alt="palm tree"
+          />
+          <img
+            className=" w-80"
+            src="assets/img/palmtreev2.svg"
+            alt="palm tree"
+          />
         </div>
         {/* <PostModal /> */}
         {/* <DataRead />  */}

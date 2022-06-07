@@ -14,8 +14,8 @@ const AppWrapper: FC<IProps> = ({
   return (
     <>
       <Head>
-        <title>Hero Galaxy</title>
-        <meta name="description" content="Hero Galaxy" />
+        <title>Bar Confessions</title>
+        <meta name="description" content="Bar Confessions" />
         <link rel="icon" href="/favicon.ico" />
         <script
             async

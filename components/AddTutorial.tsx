@@ -218,7 +218,7 @@ class AddTutorial extends React.Component<MyComponentProps, any, any> {
           <div id="form-wrapper">
             <div>
               {this.state.editPrompt ? (
-                <h1 className="text-4xl">
+                <h1 className="text-2xl">
                   {/* {questions[this.state.prompt].question} */}
                   {this.state.activeItem.prompt}
                 </h1>
@@ -252,7 +252,7 @@ class AddTutorial extends React.Component<MyComponentProps, any, any> {
                     onChange={this.handleChange}
                     className="form-control answer-box text-black"
                     id="answer"
-                    maxLength={500}
+                    maxLength={280}
                     value={this.state.activeItem.answer}
                     name="answer"
                     placeholder="Add answer.."
@@ -269,6 +269,7 @@ class AddTutorial extends React.Component<MyComponentProps, any, any> {
               </div>
             </form>
           </div>
+          
         </div>
       </div>
     );
