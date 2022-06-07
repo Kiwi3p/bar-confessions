@@ -14,6 +14,10 @@ const Data: NextPage = () => {
         <div className="flex flex-col justify-center self-center">
           <h1 className="site-title uppercase text-2xl">Bar Confessions</h1>
         </div>
+       
+        <div className="relative z-20">
+          <DataRead />
+        </div>
         <div className="relative flex self-center text-center p-2 flex flex-row">
           {/* <img
             className="px-5 w-24"
@@ -31,9 +35,6 @@ const Data: NextPage = () => {
             alt="palm tree"
           /> */}
           <div className="tree"></div>
-        </div>
-        <div className="relative z-20">
-          <DataRead />
         </div>
         {/* <div className="absolute top-48 z-10 flex flex-row justify-center self-center h-screen w-screen px-5">
           <img
