@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <div className="px-10 relative z-20">
           <AddTutorial />
         </div>
-        <div className="absolute z-10 md:hidden block flex flex-row absolute bottom-0 overflow-hidden">
+        {/* <div className="absolute z-10 md:hidden block flex flex-row absolute bottom-0 overflow-hidden">
           <img
             className=" w-96"
             src="assets/img/palmtree.svg"
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
             src="assets/img/palmtreev2.svg"
             alt="palm tree"
           />
-        </div>
+        </div> */}
         {/* <PostModal /> */}
         {/* <DataRead />  */}
       </div>
