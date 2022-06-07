@@ -18,10 +18,10 @@ const Home: NextPage = () => {
             <h1 className="site-title uppercase text-xl">Bar Confessions</h1>
           </Link>
         </div>
-        <div className="px-10">
+        <div className="px-10 relative z-20">
           <AddQuestion />
         </div>
-        <div className="absolute md:hidden block flex  flex-row absolute bottom-0 overflow-hidden">
+        <div className="absolute z-10 md:hidden block flex  flex-row absolute bottom-0 overflow-hidden">
           <img
             className=" w-96"
             src="assets/img/palmtree.svg"
