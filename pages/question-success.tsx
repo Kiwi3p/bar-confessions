@@ -30,7 +30,7 @@ const Success: NextPage = () => {
               </button>
             </Link>
           </div>
-          <div className="absolute md:hidden block flex flex-row absolute bottom-0 overflow-hidden">
+          {/* <div className="absolute md:hidden block flex flex-row absolute bottom-0 overflow-hidden">
             <img
               className=" w-96"
               src="assets/img/palmtree.svg"
@@ -41,7 +41,7 @@ const Success: NextPage = () => {
               src="assets/img/palmtreev2.svg"
               alt="palm tree"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </Layout>
