@@ -65,7 +65,7 @@ const DataRead = () => {
       {tasks.map(function (task, index) {
         return (
           <>
-            {index < 3 ? (
+            {index < 4 ? (
               <div key={index} className=" p-2 task-wrapper flex-wrapper">
                 <h2 className="font text-xl">{task.prompt}</h2>
                 <div className="prompt-container">
